@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action = "@{'/productos/guardar'}">
+    <input th:value="${producto.getId()}" name = "id" type = "hidden">
+
+    <label>Nombre del producto</label>
+    <p th:text ="${producto.name}"></p>
+
+    <label>Precio del producto</label>
+    <input th:value ="${producto.getPrice()}" name = "Price" type = "text">
+
+    <label>Cantidad</label>
+    <input th:value ="${producto.getStock()}" name = "Stock" type = "text">
+
+    <label>Categoría</label>
+    <select name = "category">
+        <option th:each="categoria : ${categorias}" th:value="${categoria.categoryId}" th:text="${categoria.categoryName}"
+        th:selected = "${categoria.categoryId == producto.category.categoryId}">
+        </option>
+    </select>
+
+
+    <button type = "submit">Guardar</button>
+    <button th:href="@{/productos/lista}">Cancelar</button>
+</form>
+
+</body>
+</html>

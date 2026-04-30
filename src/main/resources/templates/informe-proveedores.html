@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe de Productos</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; max-width: 600px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        tr:nth-child(even) { background-color: #fafafa; }
+    </style>
+</head>
+<body>
+
+<h1>Cantidad de Productos por Proveedor</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Proveedor</th>
+        <th>Total de Productos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${proveedores}">
+        <td th:text="${p.NombreProveedor}">Nombre del Proveedor</td>
+        <td th:text="${p.CantidadProductos}">0</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

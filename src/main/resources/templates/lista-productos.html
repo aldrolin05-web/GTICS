@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/productos/crear}">Nuevo producto</a>
+<table>
+    <tr>
+        <th></th>
+        <th>Nombre Producto</th>
+        <th>Proveedor</th>
+        <th>Categoría</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each = "p, info : ${productos}">
+        <td th:text = "${info.index + 1}"></td>
+        <td th:text = "${p.name}"></td>
+        <td th:text = "${p.supplier.companyName}" ></td>
+        <td th:text = "${p.category.categoryName}"></td>
+        <td><a th:href = "@{/productos/editar(id=${p.id})}">Editar</a></td>
+        <td><a th:href = "@{/productos/borrar(id=${p.id})}">Borrar</a>></td>
+    </tr>
+</table>
+</body>
+</html>
